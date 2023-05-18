@@ -1,5 +1,11 @@
+<?php
+require_once("../controllers/controller.php");
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -25,6 +31,19 @@
         <a href="../views/gererEntreprises.php" class="a-btn">Gérer</a>
     </section>
 
+    <div>
+        <?php
+            $lesentreprises = new Controller();
+            $lesentreprises = $lesentreprises->getLesEntreprisesController();
+            
+            foreach($lesentreprises as $element)
+            {
+                echo "<h2>" . $element['nom'] . $element['presnom'] . $element['email'] . $element['phone'] . $element['description'] . $element['etape'] . $element['reponse'] . "</h2>";
+            }
+
+        ?>
+    </div>
+
 
     <!-- Footer -->
     <footer id="footer">
@@ -37,7 +56,8 @@
             <li><a href="#" class="icon"><span class="label">Email</span></a></li>
         </ul>
         <ul class="copyright">
-            <li>&copy; Tous droits réservés.</li><li>Design: <a href="#">OGM</a></li>
+            <li>&copy; Tous droits réservés.</li>
+            <li>Design: <a href="#">OGM</a></li>
         </ul>
     </footer>
 
